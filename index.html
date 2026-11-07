@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Samuel Latapie — Systèmes & Réseaux</title>
+<meta name="description" content="Samuel Latapie, alternant en administration systèmes et réseaux. Projets, compétences et services de dépannage informatique pour particuliers (Pau – Tarbes).">
+<style>
+:root{
+  --bg:#f6f7f9; --surface:#ffffff; --text:#14171c; --muted:#5b6472;
+  --border:#e2e5ea; --accent:#0f7b6c; --accent-soft:#e3f3f0; --code:#eef0f3;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1116; --surface:#161b22; --text:#e6e9ee; --muted:#9aa4b2;
+    --border:#262d38; --accent:#3cc4ae; --accent-soft:#12312c; --code:#1d232d;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1116; --surface:#161b22; --text:#e6e9ee; --muted:#9aa4b2;
+  --border:#262d38; --accent:#3cc4ae; --accent-soft:#12312c; --code:#1d232d;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,sans-serif;
+}
+a{color:var(--accent)}
+.wrap{max-width:960px; margin:0 auto; padding:0 16px}
+
+/* Nav */
+nav{position:sticky; top:0; z-index:10; background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(8px); border-bottom:1px solid var(--border)}
+nav .wrap{display:flex; align-items:center; justify-content:space-between; height:56px; gap:12px}
+.logo{font-family:ui-monospace,"Cascadia Code",Consolas,monospace; font-weight:700; text-decoration:none; color:var(--text)}
+.logo span{color:var(--accent)}
+nav ul{display:flex; gap:18px; list-style:none; margin:0; padding:0}
+nav ul a{color:var(--muted); text-decoration:none; font-size:.95rem}
+nav ul a:hover{color:var(--text)}
+@media (max-width:600px){ nav ul{display:none} }
+
+/* Hero */
+.hero{padding:72px 0 48px}
+.tag{display:inline-block; font-family:ui-monospace,Consolas,monospace; font-size:.85rem;
+  background:var(--accent-soft); color:var(--accent); padding:4px 10px; border-radius:999px}
+h1{font-size:clamp(2rem,5vw,3rem); line-height:1.15; margin:16px 0 12px}
+.hero p{color:var(--muted); max-width:620px; font-size:1.1rem; margin:0 0 24px}
+.btns{display:flex; flex-wrap:wrap; gap:12px}
+.btn{display:inline-block; padding:10px 18px; border-radius:8px; text-decoration:none; font-weight:600;
+  border:1px solid var(--accent)}
+.btn.primary{background:var(--accent); color:#fff}
+:root[data-theme="dark"] .btn.primary{color:#0e1116}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .btn.primary{color:#0e1116} }
+.btn.ghost{color:var(--accent)}
+
+/* Sections */
+section{padding:48px 0; border-top:1px solid var(--border)}
+h2{font-size:1.6rem; margin:0 0 8px}
+.lead{color:var(--muted); margin:0 0 28px}
+.grid{display:grid; gap:16px; grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.card{background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:20px}
+.card h3{margin:0 0 6px; font-size:1.1rem}
+.card .ctx{font-size:.85rem; color:var(--accent); font-weight:600; margin-bottom:8px}
+.card p{margin:0 0 12px; color:var(--muted); font-size:.95rem}
+.chips{display:flex; flex-wrap:wrap; gap:6px}
+.chip{font-family:ui-monospace,Consolas,monospace; font-size:.78rem; background:var(--code);
+  padding:2px 8px; border-radius:6px}
+
+/* Parcours */
+.timeline{list-style:none; margin:0; padding:0; border-left:2px solid var(--border)}
+.timeline li{position:relative; padding:0 0 20px 20px}
+.timeline li::before{content:""; position:absolute; left:-7px; top:6px; width:12px; height:12px;
+  border-radius:50%; background:var(--accent)}
+.timeline .when{font-size:.85rem; color:var(--muted)}
+
+/* Services */
+.service .ico{font-size:1.6rem}
+.note{margin-top:20px; padding:14px 16px; border-radius:10px; background:var(--accent-soft); font-size:.95rem}
+
+/* Contact */
+.contact{display:flex; flex-wrap:wrap; gap:12px}
+footer{padding:28px 0; color:var(--muted); font-size:.85rem; border-top:1px solid var(--border)}
+.theme-toggle{background:none; border:1px solid var(--border); color:var(--text); border-radius:8px;
+  padding:4px 10px; cursor:pointer; font-size:.9rem}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">samuel<span>@</span>latapie:~$</a>
+    <ul>
+      <li><a href="#projets">Projets</a></li>
+      <li><a href="#competences">Compétences</a></li>
+      <li><a href="#parcours">Expérience</a></li>
+      <li><a href="#formation">Formation</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeBtn" aria-label="Changer de thème">◐</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="tag">Alternant Licence ASR · Pau – Tarbes</span>
+    <h1>Samuel Latapie<br>Administration systèmes &amp; réseaux</h1>
+    <p>Alternant en Licence ASR, plus de 5 ans d'expérience terrain : support N2, supervision, gestion de parc, virtualisation et dépannage matériel. J'aime comprendre comment ça marche, et le réparer quand ça ne marche plus.</p>
+    <div class="btns">
+      <a class="btn primary" href="#services">Besoin d'un dépannage ?</a>
+      <a class="btn ghost" href="#projets">Voir mes projets</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="projets">
+  <div class="wrap">
+    <h2>Projets</h2>
+    <p class="lead">En entreprise, en formation et en perso.</p>
+    <div class="grid">
+
+      <article class="card">
+        <div class="ctx">Entreprise · alternance</div>
+        <h3>Supervision Zabbix</h3>
+        <p>Remise à plat de la supervision du parc : nettoyage des alarmes, migration des notifications SMTP (25 → 587 / STARTTLS), mise en place d'alertes SMS, préparation du déploiement des agents.</p>
+        <div class="chips"><span class="chip">Zabbix</span><span class="chip">SMTP</span><span class="chip">Linux</span><span class="chip">Supervision</span></div>
+      </article>
+
+      <article class="card">
+        <div class="ctx">Entreprise · alternance</div>
+        <h3>Évolution GLPI</h3>
+        <p>Migration de GLPI v10 vers v11 et optimisation des processus selon ITIL (gestion de parc et de tickets du service informatique).</p>
+        <div class="chips"><span class="chip">GLPI</span><span class="chip">ITSM</span><span class="chip">Gestion de parc</span></div>
+      </article>
+
+      <article class="card">
+        <div class="ctx">Perso · homelab</div>
+        <h3>Homelab Proxmox</h3>
+        <p>Serveur Proxmox (VM NAS OpenMediaVault), accès SSH par clés, règles de pare-feu, sauvegardes, synchronisation cloud avec rclone. VPN WireGuard sur Raspberry Pi pour l'accès distant.</p>
+        <div class="chips"><span class="chip">Proxmox</span><span class="chip">OMV</span><span class="chip">WireGuard</span><span class="chip">rclone</span><span class="chip">SSH</span></div>
+      </article>
+
+      <article class="card">
+        <div class="ctx">Perso · Python</div>
+        <h3>DealWatch</h3>
+        <p>Outil de veille d'annonces de composants PC d'occasion : collecte automatisée, déduplication SQLite, moteur de score 0–100 et alertes e-mail HTML.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Playwright</span><span class="chip">SQLite</span></div>
+      </article>
+
+      <article class="card">
+        <div class="ctx">Perso · automatisation</div>
+        <h3>Veille techno automatisée</h3>
+        <p>Script Python sur Raspberry Pi : agrégation de flux RSS, résumé local, envoi quotidien par e-mail via cron.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">cron</span><span class="chip">Raspberry Pi</span></div>
+      </article>
+
+      <article class="card">
+        <div class="ctx">Formation · CESI</div>
+        <h3>Projets Licence ASR</h3>
+        <p>Projet de groupe « Fil Rouge » (4 personnes) et projet individuel d'infrastructure pour une collectivité. Rendu : février 2027.</p>
+        <div class="chips"><span class="chip">Infra</span><span class="chip">Gestion de projet</span></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="competences">
+  <div class="wrap">
+    <h2>Compétences</h2>
+    <p class="lead">Ce que j'utilise au quotidien ou en projet.</p>
+    <div class="grid">
+      <div class="card"><h3>Systèmes</h3><div class="chips"><span class="chip">Windows 10/11</span><span class="chip">Windows Server</span><span class="chip">Active Directory</span><span class="chip">Linux serveur</span><span class="chip">Proxmox</span><span class="chip">VMware</span><span class="chip">Hyper-V</span><span class="chip">OpenMediaVault</span></div></div>
+      <div class="card"><h3>Réseau &amp; sécurité</h3><div class="chips"><span class="chip">VLAN (Cisco)</span><span class="chip">OpenVPN</span><span class="chip">WireGuard</span><span class="chip">Pare-feu</span><span class="chip">SSH</span><span class="chip">VoIP / Avaya</span></div></div>
+      <div class="card"><h3>Supervision &amp; ITSM</h3><div class="chips"><span class="chip">PRTG</span><span class="chip">Zabbix</span><span class="chip">GLPI</span><span class="chip">ITIL</span><span class="chip">Support N2</span></div></div>
+      <div class="card"><h3>Dév &amp; scripting</h3><div class="chips"><span class="chip">Python</span><span class="chip">PowerShell</span><span class="chip">Bash</span><span class="chip">HTML/CSS</span><span class="chip">C++</span></div></div>
+      <div class="card"><h3>Matériel</h3><div class="chips"><span class="chip">Montage PC</span><span class="chip">Diagnostic</span><span class="chip">Watercooling</span><span class="chip">Câble management</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="parcours">
+  <div class="wrap">
+    <h2>Expérience</h2>
+    <p class="lead">Plus de 5 ans sur le terrain, du dépannage matériel à l'infrastructure.</p>
+    <ul class="timeline">
+      <li><div class="when">2024 – aujourd'hui · alternance</div><strong>Coll Financement</strong> — Technicien support informatique N2, puis pôle infrastructure<br>
+        <span style="color:var(--muted)">Migration GLPI v10 → v11 et optimisation ITIL · supervision PRTG (alerting, traitement des alertes) · projet Zabbix · support utilisateurs · maintenance téléphonie Avaya.</span></li>
+      <li><div class="when">2022 – 2023 · stage</div><strong>SEB Fac-Similé</strong> (Ibos) — Maintenance réseaux<br>
+        <span style="color:var(--muted)">Maintenance et dépannage de périphériques d'impression Canon.</span></li>
+      <li><div class="when">2018 – 2021 · stages</div><strong>Arobase Multitech</strong> (Lourdes) — Dépannage informatique<br>
+        <span style="color:var(--muted)">Diagnostic et dépannage matériel : ordinateurs et smartphones.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="formation">
+  <div class="wrap">
+    <h2>Formation</h2>
+    <p class="lead">Un parcours 100 % systèmes et réseaux.</p>
+    <ul class="timeline">
+      <li><div class="when">2026 – 2027 · en cours</div><strong>Licence Pro ASR</strong> (Bac +3) — CESI Pau, en alternance</li>
+      <li><div class="when">2024 – 2026</div><strong>BTS TSR</strong> (Technicien Systèmes et Réseaux) — CESI Pau, en alternance</li>
+      <li><div class="when">2023 – 2024</div><strong>BTS CIEL</strong> Cybersécurité, informatique et réseaux électroniques — Saint-Pierre, Tarbes</li>
+      <li><div class="when">2020 – 2023</div><strong>Bac Pro Systèmes numériques</strong> (Réseaux informatiques et systèmes communicants) — Saint-Pierre, Tarbes</li>
+    </ul>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <h2>Services pour particuliers</h2>
+    <p class="lead">À distance ou à domicile, secteur Pau – Tarbes – Lourdes.</p>
+    <div class="grid">
+      <div class="card service"><div class="ico">🛠️</div><h3>Dépannage Windows</h3><p>PC lent, erreurs au démarrage, mises à jour bloquées, logiciels qui plantent.</p></div>
+      <div class="card service"><div class="ico">🧹</div><h3>Nettoyage &amp; remise en forme</h3><p>Dépoussiérage, pâte thermique, suppression des programmes inutiles et des malwares.</p></div>
+      <div class="card service"><div class="ico">📦</div><h3>Transfert de données</h3><p>Passage vers un nouveau PC : documents, photos, mails, favoris, sans rien perdre.</p></div>
+      <div class="card service"><div class="ico">🖥️</div><h3>Installation &amp; montage</h3><p>Installation propre de Windows, montage ou upgrade de PC, conseils matériel.</p></div>
+      <div class="card service"><div class="ico">💾</div><h3>Sauvegarde</h3><p>Mise en place d'une sauvegarde simple et automatique de vos photos et documents.</p></div>
+      <div class="card service"><div class="ico">📶</div><h3>Réseau domestique</h3><p>Box, Wi-Fi, imprimante qui ne répond plus, partage de fichiers à la maison.</p></div>
+    </div>
+    <div class="note">💬 <strong>Devis gratuit</strong> : décrivez votre problème, je vous réponds rapidement avec une estimation.</div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p class="lead">Pour un dépannage, une question ou une opportunité pro.</p>
+    <div class="contact">
+      <!-- Liens de contact -->
+      <a class="btn primary" href="mailto:latapie.samuel.sn@gmail.com">✉️ latapie.samuel.sn@gmail.com</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/samuel-latapie-70b7032b7/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/samsam64530-ui" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="y"></span> Samuel Latapie · Site statique hébergé sur GitHub Pages</div>
+</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+  const root = document.documentElement, btn = document.getElementById('themeBtn');
+  try { const t = localStorage.getItem('theme'); if (t) root.dataset.theme = t; } catch(e){}
+  btn.addEventListener('click', () => {
+    const dark = root.dataset.theme ? root.dataset.theme === 'dark'
+      : matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme = dark ? 'light' : 'dark';
+    try { localStorage.setItem('theme', root.dataset.theme); } catch(e){}
+  });
+</script>
+</body>
+</html>
