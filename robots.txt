@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://samsam64530-ui.github.io/sitemap.xml
