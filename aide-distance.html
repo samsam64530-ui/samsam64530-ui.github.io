@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aide à distance — Samuel Latapie</title>
+<meta name="description" content="Guide simple pour permettre un dépannage informatique à distance avec AnyDesk, en 3 étapes.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f7b6c'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3ESL%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#f6f7f9;--surface:#fff;--text:#14171c;--muted:#4f5866;--border:#dfe3e8;--accent:#0f7b6c;--accent-soft:#e3f3f0;--warn-bg:#fff4e5;--warn:#9a4a00;--on-accent:#fff}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0e1116;--surface:#161b22;--text:#e6e9ee;--muted:#a7b0bd;--border:#262d38;--accent:#3cc4ae;--accent-soft:#12312c;--warn-bg:#3a2a12;--warn:#ffc27a;--on-accent:#0e1116;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1116;--surface:#161b22;--text:#e6e9ee;--muted:#a7b0bd;--border:#262d38;--accent:#3cc4ae;--accent-soft:#12312c;--warn-bg:#3a2a12;--warn:#ffc27a;--on-accent:#0e1116;color-scheme:dark}
+*{box-sizing:border-box}
+/* Texte volontairement grand : page pensée pour tous les âges */
+body{margin:0;background:var(--bg);color:var(--text);font:19px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+nav{border-bottom:1px solid var(--border)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+nav a{text-decoration:none;font-size:1rem}
+.theme-toggle{background:none;border:1px solid var(--border);color:var(--text);border-radius:8px;padding:4px 10px;cursor:pointer}
+header{padding-block:44px 20px}
+h1{font-size:clamp(1.9rem,5vw,2.5rem);line-height:1.15;margin:0 0 12px;text-wrap:balance}
+.intro{color:var(--muted);margin:0}
+.steps{list-style:none;padding:0;margin:28px 0;display:grid;gap:18px}
+.step{display:grid;grid-template-columns:64px 1fr;gap:18px;background:var(--surface);border:2px solid var(--border);border-radius:16px;padding:22px}
+.badge{width:64px;height:64px;border-radius:50%;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;font-size:2rem;font-weight:800}
+.step h2{margin:4px 0 6px;font-size:1.35rem}
+.step p{margin:0 0 10px}
+.step p:last-child{margin:0}
+.dl{display:inline-block;background:var(--accent);color:var(--on-accent);text-decoration:none;font-weight:700;padding:14px 22px;border-radius:12px;font-size:1.05rem}
+.dl:focus-visible,.theme-toggle:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.code{display:inline-block;font:700 1.4rem/1.2 ui-monospace,Consolas,monospace;letter-spacing:.12em;background:var(--accent-soft);color:var(--accent);padding:8px 14px;border-radius:10px}
+.safe{background:var(--accent-soft);border-radius:16px;padding:22px;margin:8px 0 22px}
+.safe h2,.warn h2{margin:0 0 10px;font-size:1.25rem}
+.safe ul{margin:0;padding-left:1.2em;display:grid;gap:6px}
+.warn{background:var(--warn-bg);color:var(--warn);border-radius:16px;padding:22px;margin-bottom:28px}
+.warn p{margin:0}
+footer{padding-block:24px 40px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--border)}
+@media (max-width:520px){.step{grid-template-columns:1fr}.badge{width:52px;height:52px;font-size:1.6rem}}
+</style></head>
+<body>
+<nav><div class="wrap"><a href="depannage.html">← Retour au dépannage</a><button class="theme-toggle" id="themeBtn" aria-label="Changer de thème">◐</button></div></nav>
+<main class="wrap">
+<header>
+  <h1>Dépannage à distance : comment faire ?</h1>
+  <p class="intro">Trois étapes simples. Comptez 2 minutes. Je reste avec vous au téléphone ou par message pendant toute l'opération.</p>
+</header>
+
+<ol class="steps">
+  <li class="step"><div class="badge" aria-hidden="true">1</div><div>
+    <h2>Téléchargez AnyDesk</h2>
+    <p>C'est un logiciel gratuit et reconnu, qui me permet de voir votre écran.</p>
+    <p><a class="dl" href="https://anydesk.com/fr/downloads" target="_blank" rel="noopener">Télécharger AnyDesk</a></p>
+    <p>Une fois téléchargé, ouvrez le fichier. <strong>Pas besoin de l'installer</strong> : il s'ouvre directement.</p>
+  </div></li>
+
+  <li class="step"><div class="badge" aria-hidden="true">2</div><div>
+    <h2>Donnez-moi votre numéro AnyDesk</h2>
+    <p>Dans la fenêtre d'AnyDesk, à gauche, vous voyez <strong>« Ce poste de travail »</strong> suivi d'un numéro à 9 ou 10 chiffres, par exemple :</p>
+    <p><span class="code">123 456 789</span></p>
+    <p>Envoyez-moi <strong>uniquement ce numéro</strong> par message.</p>
+  </div></li>
+
+  <li class="step"><div class="badge" aria-hidden="true">3</div><div>
+    <h2>Cliquez sur « Accepter »</h2>
+    <p>Une fenêtre apparaît quand je me connecte. Vérifiez que c'est bien le moment convenu ensemble, puis cliquez sur le bouton <strong>« Accepter »</strong>.</p>
+    <p>C'est tout. Vous voyez tout ce que je fais sur votre écran.</p>
+  </div></li>
+</ol>
+
+<section class="safe">
+  <h2>🔒 Vous gardez le contrôle</h2>
+  <ul>
+    <li>Vous voyez tout ce que je fais, en direct.</li>
+    <li>Vous pouvez couper à tout moment avec le bouton <strong>« Déconnecter »</strong>, ou en fermant AnyDesk.</li>
+    <li>Je ne vous demande <strong>jamais</strong> vos mots de passe ni vos coordonnées bancaires.</li>
+    <li>Je n'ouvre pas vos fichiers personnels sans votre accord.</li>
+    <li>Après l'intervention, vous pouvez simplement supprimer AnyDesk.</li>
+  </ul>
+</section>
+
+<section class="warn">
+  <h2>⚠️ Attention aux arnaques</h2>
+  <p>Ne donnez <strong>jamais</strong> votre numéro AnyDesk à quelqu'un qui vous appelle sans que vous l'ayez contacté, même s'il se présente comme Microsoft, votre banque ou un technicien. Je n'appelle jamais de moi-même pour prendre la main sur un ordinateur.</p>
+</section>
+</main>
+<footer><div class="wrap">© <span id="y"></span> Samuel Latapie · <a href="depannage.html">Dépannage</a> · <a href="mentions-legales.html">Mentions légales</a></div></footer>
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+const root=document.documentElement,btn=document.getElementById('themeBtn');
+try{const t=localStorage.getItem('theme');if(t)root.dataset.theme=t;}catch(e){}
+btn.addEventListener('click',()=>{const dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;root.dataset.theme=dark?'light':'dark';try{localStorage.setItem('theme',root.dataset.theme);}catch(e){}});
+</script>
+</body>
+</html>
