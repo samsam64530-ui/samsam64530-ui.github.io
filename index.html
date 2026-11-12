@@ -67,8 +67,8 @@ h1{font-size:clamp(2rem,5vw,2.8rem); line-height:1.15; margin:16px 0 12px}
 
 /* Chiffres clés */
 .env{margin-top:40px; background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:22px}
-.env-title{display:flex; align-items:center; gap:8px; font-weight:700; font-size:1rem; margin:0 0 18px}
-.env-title small{font-weight:500; color:var(--muted); font-size:.9rem}
+.env-title{font-weight:700; font-size:1rem; margin:0 0 18px}
+.env-title small{display:block; margin-top:2px; font-weight:500; color:var(--muted); font-size:.9rem}
 .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
 .stat{border-radius:12px; padding:18px 14px; text-align:center; background:var(--accent-soft)}
 .stat b{display:block; font-size:2.4rem; color:var(--accent); line-height:1.1; font-weight:800}
@@ -198,11 +198,11 @@ footer{padding:24px 0; color:var(--muted); font-size:.85rem; border-top:1px soli
       <a class="btn ghost" href="#profil">Voir mon profil</a>
     </div>
     <div class="env">
-      <p class="env-title">💼 Mon environnement en alternance <small>· service informatique de Coll Financement (Groupe Toujas &amp; Coll)</small></p>
+      <p class="env-title">💼 Mon environnement en alternance <small>Service informatique de Coll Financement (Groupe Toujas &amp; Coll)</small></p>
       <div class="stats">
-        <div class="stat"><b>~<span class="count" data-to="300">300</span></b>
-          <span class="lbl">équipements</span><span class="sub">dans le parc informatique</span></div>
-        <div class="stat"><b><span class="count" data-to="50">50</span>–<span class="count" data-to="70">70</span></b>
+        <div class="stat"><b><span class="count" data-to="1000">1 000</span>+</b>
+          <span class="lbl">équipements supervisés</span><span class="sub">serveurs, Wi-Fi, PC, imprimantes…</span></div>
+        <div class="stat"><b><span class="count" data-to="30">30</span>–<span class="count" data-to="50">50</span></b>
           <span class="lbl">tickets / semaine</span><span class="sub">traités avec l'équipe</span></div>
         <div class="stat"><b><span class="count" data-to="5">5</span> ans+</b>
           <span class="lbl">de terrain</span><span class="sub">stages + alternance</span></div>
@@ -240,7 +240,7 @@ footer{padding:24px 0; color:var(--muted); font-size:.85rem; border-top:1px soli
         <article class="card">
           <div class="ctx">Entreprise</div>
           <h3>Migration GLPI</h3>
-          <p>Passage de GLPI v10 à v11 et optimisation des processus ITIL, en alternance, sur un parc d'environ 300 équipements.</p>
+          <p>Passage de GLPI v10 à v11 et optimisation des processus ITIL, en alternance, sur un parc de plus de 1 000 équipements.</p>
           <div class="chips"><span class="chip">GLPI</span><span class="chip">ITIL</span><span class="chip">Gestion de parc</span></div>
         </article>
         <article class="card">
@@ -289,7 +289,7 @@ footer{padding:24px 0; color:var(--muted); font-size:.85rem; border-top:1px soli
           <h3 style="margin-bottom:14px">Expérience</h3>
           <ul class="timeline">
             <li><div class="when">2024 – aujourd'hui · alternance</div><strong>Coll Financement</strong>
-              <small>Technicien support N2 puis pôle infrastructure, au sein de l'équipe informatique : traitement des tickets (50–70 par semaine pour l'équipe), parc d'environ 300 équipements, supervision PRTG, téléphonie Avaya.</small></li>
+              <small>Technicien support N2 puis pôle infrastructure, au sein de l'équipe informatique : traitement des tickets (30–50 par semaine pour l'équipe), plus de 1 000 équipements supervisés, supervision PRTG, téléphonie Avaya.</small></li>
             <li><div class="when">2022 – 2023 · stage</div><strong>SEB Fac-Similé</strong> (Ibos)
               <small>Maintenance de périphériques d'impression Canon.</small></li>
             <li><div class="when">2018 – 2021 · stages</div><strong>Arobase Multitech</strong> (Lourdes)
@@ -370,7 +370,7 @@ footer{padding:24px 0; color:var(--muted); font-size:.85rem; border-top:1px soli
     el.textContent = '0';
     const step = now => {
       const p = Math.min((now - t0) / dur, 1);
-      el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3)));
+      el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))).toLocaleString('fr-FR');
       if (p < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
