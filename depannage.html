@@ -124,6 +124,17 @@ footer{padding:24px 0;color:var(--muted);font-size:.85rem;border-top:1px solid v
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
+/* Disponibilités et zones */
+.dispo{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;font-size:.93rem}
+.dispo th,.dispo td{padding:10px 14px;text-align:left;border-top:1px solid var(--border);vertical-align:top}
+.dispo thead th{border-top:none;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.dispo td:first-child{font-weight:600}
+.dispo .hl{color:var(--accent);font-weight:700}
+.tblwrap{overflow-x:auto;border-radius:14px}
+.sub-h{font-size:1.1rem;margin:28px 0 10px}
+.express{margin-top:16px;padding:14px 16px;border-radius:10px;border:1px solid var(--accent);background:var(--accent-soft);font-size:.95rem}
+.card.best{border-color:var(--accent)}
+.card .best-tag{display:inline-block;font-size:.72rem;font-weight:700;background:var(--accent);color:var(--on-accent);padding:2px 8px;border-radius:999px;margin-left:6px;vertical-align:middle}
 /* Bandeau ouverture prochaine (à retirer à l'ouverture) */
 .opening{background:var(--accent-soft);border:1px solid var(--accent);color:var(--text);border-radius:12px;padding:12px 16px;margin:0 0 22px;font-size:.95rem;line-height:1.5}
 .opening strong{color:var(--accent)}
@@ -172,7 +183,7 @@ footer{padding:24px 0;color:var(--muted);font-size:.85rem;border-top:1px solid v
       <div class="row"><div><strong>Montage de PC</strong><small>Avec les pièces que vous avez choisies</small></div><div class="price">60 €</div></div>
       <div class="row"><div><strong>Autre demande</strong><small>Imprimante, Wi-Fi, logiciel, conseil…</small></div><div class="price">30 €/h<em>sur devis</em></div></div>
     </div>
-    <p class="fineprint">Tarifs indicatifs « à partir de ». Le prix exact est confirmé par devis avant l'intervention. Pièces éventuelles non incluses.</p>
+    <p class="fineprint">Tarifs indicatifs « à partir de ». Le prix exact est confirmé par devis avant l'intervention. Pièces éventuelles non incluses. À domicile, ajoutez les <a href="#dispos">frais de déplacement selon la zone</a>.</p>
   </div>
 </section>
 
@@ -181,10 +192,40 @@ footer{padding:24px 0;color:var(--muted);font-size:.85rem;border-top:1px solid v
     <h2>Comment j'interviens</h2>
     <p class="lead">Je privilégie toujours la solution la moins chère pour vous.</p>
     <div class="grid">
+      <div class="card best"><div class="ico">📦</div><h3>Dépôt <span class="best-tag">Le moins cher</span></h3><p>Vous me déposez l'ordinateur (la tour suffit, sans écran ni clavier). Idéal pour le dépoussiérage, le montage ou la réinstallation. Je vous préviens dès qu'il est prêt.</p><span class="tagfee">Aucun frais de déplacement</span></div>
       <div class="card"><div class="ico">💻</div><h3>À distance</h3><p>Je prends la main sur votre PC via un logiciel sécurisé, avec votre accord. Idéal pour tout ce qui est logiciel.</p><span class="tagfee">Aucun frais de déplacement</span></div>
-      <div class="card"><div class="ico">📦</div><h3>Dépôt</h3><p>Vous me déposez l'ordinateur, je vous préviens dès qu'il est prêt.</p><span class="tagfee">Aucun frais de déplacement</span></div>
-      <div class="card"><div class="ico">🚗</div><h3>À domicile</h3><p>Uniquement quand c'est nécessaire : matériel, box, Wi-Fi, imprimante.</p><span class="tagfee">Lourdes 10 € · Pau / Tarbes 15 €</span></div>
+      <div class="card"><div class="ico">🚗</div><h3>À domicile</h3><p>Quand c'est nécessaire : box, Wi-Fi, imprimante, installation. En priorité le week-end.</p><span class="tagfee">Selon la zone : 10 € · 20 € · 30 €</span></div>
     </div>
+  </div>
+</section>
+
+<section id="dispos">
+  <div class="wrap">
+    <h2>Disponibilités et déplacements</h2>
+    <p class="lead">Je suis en alternance la journée : j'interviens le soir et le week-end. Le créneau est toujours fixé ensemble par e-mail.</p>
+    <div class="tblwrap"><table class="dispo">
+      <thead><tr><th></th><th>Lundi → vendredi</th><th>Samedi</th><th>Dimanche</th></tr></thead>
+      <tbody>
+        <tr><td>Demandes</td><td colspan="3">7j/7 via le formulaire, réponse sous 24 h</td></tr>
+        <tr><td>À distance</td><td>17h – 20h</td><td>9h – 18h</td><td>Sur rendez-vous</td></tr>
+        <tr><td>Dépôt / retrait</td><td>17h – 19h30</td><td>9h – 18h</td><td>Sur rendez-vous</td></tr>
+        <tr><td>À domicile</td><td>Intervention courte en fin de journée, selon mes disponibilités</td><td class="hl">9h – 18h (en priorité)</td><td>Sur rendez-vous</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3 class="sub-h">Frais de déplacement (depuis Pontacq)</h3>
+    <div class="tblwrap"><table class="dispo">
+      <thead><tr><th>Zone</th><th>Exemples</th><th>Frais</th></tr></thead>
+      <tbody>
+        <tr><td>Zone 1 · moins de 15 km</td><td>Pontacq, Soumoulou, Nay, Ossun</td><td class="hl">10 €</td></tr>
+        <tr><td>Zone 2 · 15 à 30 km</td><td>Pau, Tarbes, Lourdes, Bizanos</td><td class="hl">20 €</td></tr>
+        <tr><td>Zone 3 · 30 à 45 km</td><td>Lescar, Argelès-Gazost, Bagnères-de-Bigorre</td><td class="hl">30 €</td></tr>
+        <tr><td>Au-delà</td><td colspan="2">Dépôt ou intervention à distance</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="express">⚡ <strong>Besoin urgent ? Intervention le jour même : +20 €.</strong><br>
+      En semaine, pour une demande reçue <strong>avant 14h</strong>, intervention à partir de 17h (zones 1 et 2). Le week-end, selon mes disponibilités. Je vous confirme toujours le créneau avant de venir.</div>
   </div>
 </section>
 
@@ -206,10 +247,11 @@ footer{padding:24px 0;color:var(--muted);font-size:.85rem;border-top:1px solid v
   <div class="wrap">
     <h2>Questions fréquentes</h2>
     <p class="lead">&nbsp;</p>
-    <details><summary>Quand êtes-vous disponible ?</summary><p>Principalement le soir en semaine et le week-end, car je suis en alternance la journée. On convient ensemble d'un créneau qui vous arrange, selon mes disponibilités.</p></details>
+    <details><summary>Quand êtes-vous disponible ?</summary><p>Le soir en semaine (à distance ou en dépôt) et le week-end, car je suis en alternance la journée. Les interventions à domicile ont lieu en priorité le samedi. <a href="#dispos">Voir mes disponibilités</a>.</p></details>
     <details><summary>Comment marche l'intervention à distance ?</summary><p>Vous téléchargez le logiciel gratuit AnyDesk, vous me donnez le numéro affiché, et je travaille pendant que vous regardez. Vous pouvez couper la connexion à tout moment. <a href="aide-distance.html">Voir le guide pas à pas</a>.</p></details>
     <details><summary>Et si je ne peux pas être réparé ?</summary><p>Si le diagnostic montre que la réparation ne vaut pas le coup, je vous le dis honnêtement et je ne facture rien d'autre que ce qui a été convenu.</p></details>
-    <details><summary>Est-ce que vous vous déplacez ailleurs ?</summary><p>Autour de Pau, Tarbes et Lourdes. Pour les autres communes, demandez : c'est souvent possible, ou faisable à distance.</p></details>
+    <details><summary>Et si c'est urgent ?</summary><p>Je propose une intervention le jour même pour 20 € de plus : en semaine si votre demande arrive avant 14h (intervention à partir de 17h, à Pau, Tarbes, Lourdes et environs), le week-end selon mes disponibilités. Choisissez « Jour même » dans le formulaire.</p></details>
+    <details><summary>Est-ce que vous vous déplacez ailleurs ?</summary><p>Jusqu'à environ 45 km de Pontacq (Pau, Tarbes, Lourdes et alentours), avec des frais selon la zone. Au-delà, je vous propose le dépôt ou une intervention à distance.</p></details>
   </div>
 </section>
 
@@ -239,6 +281,11 @@ footer{padding:24px 0;color:var(--muted);font-size:.85rem;border-top:1px solid v
             <option>Dépoussiérage / surchauffe</option><option>Montage de PC</option><option>Wi-Fi / imprimante</option><option>Autre</option>
           </select></label>
       </div>
+      <label>Délai souhaité
+        <select name="⏱️ Délai souhaité" id="delai">
+          <option>Pas pressé</option><option>Dans la semaine</option><option>Ce week-end</option>
+          <option value="Jour même (express +20 €)">Jour même – express (+20 €)</option>
+        </select></label>
       <label>Décrivez votre problème<textarea name="📝 Description du problème" placeholder="Que se passe-t-il ? Depuis quand ? Quel ordinateur (marque, Windows…) ?" required minlength="15" maxlength="2000"></textarea></label>
       <p style="margin:0;color:var(--muted);font-size:.85rem">🔒 Vos informations servent uniquement à répondre à votre demande et ne sont jamais revendues. <a href="mentions-legales.html#rgpd">En savoir plus</a></p>
       <div><button class="btn primary" type="submit">Envoyer ma demande</button></div>
@@ -367,6 +414,7 @@ footer{padding:24px 0;color:var(--muted);font-size:.85rem;border-top:1px solid v
     const commune = document.getElementById('commune').value.trim();
     const type = document.getElementById('type').value;
     document.getElementById('subject').value =
+      (document.getElementById('delai').value.startsWith('Jour même') ? '⚡ URGENT – ' : '') +
       'Nouvelle demande de dépannage – ' + (commune || 'commune non précisée') + ' · ' + type;
   });
   const root = document.documentElement, btn = document.getElementById('themeBtn');
